@@ -174,6 +174,29 @@ namespace Cau5
             }
         }
 
+        private void dgvMenu_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                // Get ID from the first column
+                try 
+                {
+                    int selectedId = int.Parse(dgvMenu.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    
+                    // Find and select in ComboBox
+                    foreach (FoodItem item in cbFood.Items)
+                    {
+                        if (item.ID == selectedId)
+                        {
+                            cbFood.SelectedItem = item;
+                            break;
+                        }
+                    }
+                }
+                catch { }
+            }
+        }
+
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (isConnected)

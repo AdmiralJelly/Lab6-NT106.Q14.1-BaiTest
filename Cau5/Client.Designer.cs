@@ -61,6 +61,7 @@
             this.dgvMenu.RowHeadersVisible = false;
             this.dgvMenu.Size = new System.Drawing.Size(560, 250); // Shortened to make space
             this.dgvMenu.TabIndex = 0;
+            this.dgvMenu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMenu_CellClick);
             // 
             // btnConnect
             // 
