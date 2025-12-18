@@ -1,1 +1,5 @@
-<Solution />
+<Solution>
+  <Project Path="Client/Client.csproj" Id="98b73eb3-41c0-40f0-9892-1f8419bd5c2f" />
+  <Project Path="Sever/Sever.csproj" Id="53cd7814-c66f-42ef-bf48-8afae4f747e2" />
+  <Project Path="Staff/Staff.csproj" Id="1659e9c7-2b03-4017-897b-f9ee33ed0a05" />
+</Solution>

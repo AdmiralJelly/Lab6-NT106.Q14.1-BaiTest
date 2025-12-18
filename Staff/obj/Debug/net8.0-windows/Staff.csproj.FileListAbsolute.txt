@@ -1,0 +1,17 @@
+C:\Users\Admin\Desktop\Lab6-NT106.Q14.1-BaiTest\Staff\bin\Debug\net8.0-windows\Staff.exe
+C:\Users\Admin\Desktop\Lab6-NT106.Q14.1-BaiTest\Staff\bin\Debug\net8.0-windows\Staff.deps.json
+C:\Users\Admin\Desktop\Lab6-NT106.Q14.1-BaiTest\Staff\bin\Debug\net8.0-windows\Staff.runtimeconfig.json
+C:\Users\Admin\Desktop\Lab6-NT106.Q14.1-BaiTest\Staff\bin\Debug\net8.0-windows\Staff.dll
+C:\Users\Admin\Desktop\Lab6-NT106.Q14.1-BaiTest\Staff\bin\Debug\net8.0-windows\Staff.pdb
+C:\Users\Admin\Desktop\Lab6-NT106.Q14.1-BaiTest\Staff\obj\Debug\net8.0-windows\Staff.Form1.resources
+C:\Users\Admin\Desktop\Lab6-NT106.Q14.1-BaiTest\Staff\obj\Debug\net8.0-windows\Staff.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\Lab6-NT106.Q14.1-BaiTest\Staff\obj\Debug\net8.0-windows\Staff.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Desktop\Lab6-NT106.Q14.1-BaiTest\Staff\obj\Debug\net8.0-windows\Staff.AssemblyInfoInputs.cache
+C:\Users\Admin\Desktop\Lab6-NT106.Q14.1-BaiTest\Staff\obj\Debug\net8.0-windows\Staff.AssemblyInfo.cs
+C:\Users\Admin\Desktop\Lab6-NT106.Q14.1-BaiTest\Staff\obj\Debug\net8.0-windows\Staff.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Lab6-NT106.Q14.1-BaiTest\Staff\obj\Debug\net8.0-windows\Staff.sourcelink.json
+C:\Users\Admin\Desktop\Lab6-NT106.Q14.1-BaiTest\Staff\obj\Debug\net8.0-windows\Staff.dll
+C:\Users\Admin\Desktop\Lab6-NT106.Q14.1-BaiTest\Staff\obj\Debug\net8.0-windows\refint\Staff.dll
+C:\Users\Admin\Desktop\Lab6-NT106.Q14.1-BaiTest\Staff\obj\Debug\net8.0-windows\Staff.pdb
+C:\Users\Admin\Desktop\Lab6-NT106.Q14.1-BaiTest\Staff\obj\Debug\net8.0-windows\Staff.genruntimeconfig.cache
+C:\Users\Admin\Desktop\Lab6-NT106.Q14.1-BaiTest\Staff\obj\Debug\net8.0-windows\ref\Staff.dll
