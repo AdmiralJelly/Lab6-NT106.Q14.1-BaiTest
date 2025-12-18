@@ -1,6 +1,6 @@
 ﻿namespace Cau5
 {
-    partial class Form1
+    partial class Client
     {
         /// <summary>
         ///  Required designer variable.
@@ -38,8 +38,13 @@
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbFood = new System.Windows.Forms.ComboBox();
+            this.nudQty = new System.Windows.Forms.NumericUpDown();
+            this.lblFood = new System.Windows.Forms.Label();
+            this.lblQty = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudQty)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvMenu
@@ -54,7 +59,7 @@
             this.dgvMenu.Location = new System.Drawing.Point(12, 50);
             this.dgvMenu.Name = "dgvMenu";
             this.dgvMenu.RowHeadersVisible = false;
-            this.dgvMenu.Size = new System.Drawing.Size(560, 300);
+            this.dgvMenu.Size = new System.Drawing.Size(560, 250); // Shortened to make space
             this.dgvMenu.TabIndex = 0;
             // 
             // btnConnect
@@ -79,14 +84,14 @@
             // 
             // nudTable
             // 
-            this.nudTable.Location = new System.Drawing.Point(344, 370);
+            this.nudTable.Location = new System.Drawing.Point(60, 320);
             this.nudTable.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.nudTable.Name = "nudTable";
-            this.nudTable.Size = new System.Drawing.Size(60, 23);
+            this.nudTable.Size = new System.Drawing.Size(50, 23);
             this.nudTable.TabIndex = 3;
             this.nudTable.Value = new decimal(new int[] {
             1,
@@ -97,19 +102,52 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(280, 374);
+            this.label1.Location = new System.Drawing.Point(12, 324);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 15);
+            this.label1.Size = new System.Drawing.Size(41, 15);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Số Bàn:";
+            this.label1.Text = "Bàn số:";
+            // 
+            // cbFood
+            // 
+            this.cbFood.FormattingEnabled = true;
+            this.cbFood.Location = new System.Drawing.Point(180, 320);
+            this.cbFood.Name = "cbFood";
+            this.cbFood.Size = new System.Drawing.Size(150, 23);
+            this.cbFood.TabIndex = 5;
+            // 
+            // lblFood
+            // 
+            this.lblFood.AutoSize = true;
+            this.lblFood.Location = new System.Drawing.Point(125, 324);
+            this.lblFood.Name = "lblFood";
+            this.lblFood.Size = new System.Drawing.Size(49, 15);
+            this.lblFood.TabIndex = 6;
+            this.lblFood.Text = "Món ăn:";
+            // 
+            // nudQty
+            // 
+            this.nudQty.Location = new System.Drawing.Point(400, 320);
+            this.nudQty.Name = "nudQty";
+            this.nudQty.Size = new System.Drawing.Size(50, 23);
+            this.nudQty.TabIndex = 7;
+            // 
+            // lblQty
+            // 
+            this.lblQty.AutoSize = true;
+            this.lblQty.Location = new System.Drawing.Point(340, 324);
+            this.lblQty.Name = "lblQty";
+            this.lblQty.Size = new System.Drawing.Size(57, 15);
+            this.lblQty.TabIndex = 8;
+            this.lblQty.Text = "Số lượng:";
             // 
             // btnOrder
             // 
             this.btnOrder.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnOrder.Location = new System.Drawing.Point(420, 365);
+            this.btnOrder.Location = new System.Drawing.Point(460, 315);
             this.btnOrder.Name = "btnOrder";
-            this.btnOrder.Size = new System.Drawing.Size(152, 32);
-            this.btnOrder.TabIndex = 5;
+            this.btnOrder.Size = new System.Drawing.Size(110, 32);
+            this.btnOrder.TabIndex = 9;
             this.btnOrder.Text = "ĐẶT MÓN";
             this.btnOrder.UseVisualStyleBackColor = true;
             this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
@@ -136,7 +174,7 @@
             // 
             // colQty
             // 
-            this.colQty.HeaderText = "SL (Nhập)";
+            this.colQty.HeaderText = "SL (Grid)";
             this.colQty.Name = "colQty";
             // 
             // Form1
@@ -145,6 +183,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 411);
             this.Controls.Add(this.btnOrder);
+            this.Controls.Add(this.lblQty);
+            this.Controls.Add(this.nudQty);
+            this.Controls.Add(this.lblFood);
+            this.Controls.Add(this.cbFood);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.nudTable);
             this.Controls.Add(this.lblStatus);
@@ -155,6 +197,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudQty)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,5 +215,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn colQty;
+        private System.Windows.Forms.ComboBox cbFood;
+        private System.Windows.Forms.Label lblFood;
+        private System.Windows.Forms.NumericUpDown nudQty;
+        private System.Windows.Forms.Label lblQty;
     }
 }

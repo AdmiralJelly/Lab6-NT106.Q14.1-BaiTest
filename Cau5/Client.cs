@@ -10,11 +10,11 @@ using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
 using System.IO;
-using System.Threading;
+using System.Threading; 
 
 namespace Cau5
 {
-    public partial class Form1 : Form
+    public partial class Client : Form
     {
         TcpClient client;
         NetworkStream stream;
@@ -22,8 +22,20 @@ namespace Cau5
         StreamWriter writer;
         Thread recvThread;
         bool isConnected = false;
+        List<FoodItem> menuList = new List<FoodItem>();
 
-        public Form1()
+        public class FoodItem
+        {
+            public int ID { get; set; }
+            public string Name { get; set; }
+            public int Price { get; set; }
+            public override string ToString()
+            {
+                return $"{Name} - {Price}";
+            }
+        }
+
+        public Client()
         {
             InitializeComponent();
         }
@@ -32,7 +44,7 @@ namespace Cau5
         {
             try
             {
-                client = new TcpClient("127.0.0.1", 8080);
+                client = new TcpClient("10.245.146.21", 8080);
                 stream = client.GetStream();
                 reader = new StreamReader(stream);
                 writer = new StreamWriter(stream);
@@ -85,22 +97,35 @@ namespace Cau5
 
         void ProcessData(string data)
         {
-            // Neu server tra ve menu dang: ID;Name;Price (vd: 1;Pho;50000)
             if (data.Contains(";"))
             {
-                try
+                menuList.Clear();
+                string[] lines = data.Split('#');
+                foreach (string line in lines)
                 {
-                    string[] parts = data.Split(';');
-                    if (parts.Length == 3)
+                    try
                     {
-                        dgvMenu.Rows.Add(parts[0], parts[1], parts[2], "0");
+                        string[] parts = line.Split(';');
+                        if (parts.Length == 3)
+                        {
+                            dgvMenu.Rows.Add(parts[0], parts[1], parts[2], "0");
+                            
+                            menuList.Add(new FoodItem 
+                            { 
+                                ID = int.Parse(parts[0]),
+                                Name = parts[1],
+                                Price = int.Parse(parts[2]) 
+                            });
+                        }
                     }
-                }
-                catch { }
+                    catch { }
+                }   
+                
+                cbFood.DataSource = null;
+                cbFood.DataSource = menuList;
             }
             else if (data == "OK")
             {
-                // Server xac nhan don hang
                 MessageBox.Show("Đặt thành công!", "Thông báo");
             }
         }
@@ -116,7 +141,6 @@ namespace Cau5
             int tableFunc = (int)nudTable.Value;
             bool ordered = false;
 
-            // Duyet qua tung dong de xem mon nao duoc chon (SL > 0)
             foreach (DataGridViewRow row in dgvMenu.Rows)
             {
                 if (row.Cells[3].Value != null)
@@ -126,16 +150,22 @@ namespace Cau5
 
                     if (qty > 0)
                     {
-                        string dishID = row.Cells[0].Value.ToString();
-                        // Format: ORDER <Table> <DishID> <Qty>
-                        string cmd = $"ORDER {tableFunc} {dishID} {qty}";
+                        string dishName = row.Cells[1].Value.ToString();
+                        string priceStr = row.Cells[2].Value.ToString();
+                        string cmd = $"ORDER|{tableFunc}|{dishName}|{qty}|{priceStr}";
                         SendData(cmd);
                         ordered = true;
-                        
-                        // Reset so luong ve 0 sau khi dat
                         row.Cells[3].Value = "0";
                     }
                 }
+            }
+
+            if (nudQty.Value > 0 && cbFood.SelectedItem is FoodItem selectedFood)
+            {
+                string cmd = $"ORDER|{tableFunc}|{selectedFood.Name}|{nudQty.Value}|{selectedFood.Price}";
+                SendData(cmd);
+                ordered = true;
+                nudQty.Value = 0;
             }
 
             if (!ordered)
